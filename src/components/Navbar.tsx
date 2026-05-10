@@ -11,12 +11,12 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-8 text-sm">
           <a href="#features" className="text-foreground hover:text-foreground/50 transition-colors">Features</a>
           <a href="#commands" className="text-foreground hover:text-foreground/50 transition-colors">Commands</a>
-          
+
           <Link to="/docs" className="text-foreground hover:text-foreground/50 transition-colors">Docs</Link>
         </div>
         <div className="flex items-center gap-3">
           <a
-            href="https://github.com/kdm-cli/kdm"
+            href="https://github.com/KDM-cli/kdm-cli"
             target="_blank"
             rel="noreferrer"
             className="btn-mono px-4 py-2 inline-flex items-center gap-2 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors"

@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export const CTA = () => {
   return (
     <section className="py-32 lg:py-48 border-b border-border relative overflow-hidden">
@@ -12,11 +14,11 @@ export const CTA = () => {
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <a href="#" className="btn-mono px-6 py-3 bg-foreground text-background hover:bg-foreground/90 transition-colors">
-            Start free trial
+            Start Now
           </a>
-          <a href="#" className="btn-mono px-6 py-3 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors">
+          <Link to="/docs" className="btn-mono px-6 py-3 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors">
             Read the docs
-          </a>
+          </Link>
         </div>
       </div>
     </section>

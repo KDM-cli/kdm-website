@@ -47,7 +47,7 @@ export const Hero = () => {
               <a href="#" className="btn-mono px-6 py-3 bg-foreground text-background hover:bg-foreground/90 transition-colors">
                 Try KDM
               </a>
-              <a href="#" className="btn-mono px-6 py-3 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors">
+              <a href="https://github.com/KDM-cli/kdm-cli" className="btn-mono px-6 py-3 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors">
                 View on GitHub
               </a>
             </div>

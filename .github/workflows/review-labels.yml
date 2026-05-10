@@ -1,0 +1,60 @@
+name: Manage Review Labels
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  update-labels:
+    name: Update Review Status Labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update PR Labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const number = context.issue.number;
+            const pr = context.payload.pull_request;
+            
+            // Skip draft PRs
+            if (pr && pr.draft) return;
+
+            const addLabel = async (label) => {
+              try {
+                await github.rest.issues.addLabels({ owner, repo, issue_number: number, labels: [label] });
+              } catch (e) {
+                console.log(`Failed to add label ${label}`, e);
+              }
+            };
+
+            const removeLabel = async (label) => {
+              try {
+                await github.rest.issues.removeLabel({ owner, repo, issue_number: number, name: label });
+              } catch (e) {
+                console.log(`Label ${label} not present or error removing`, e);
+              }
+            };
+
+            if (context.eventName === 'pull_request') {
+              // When a PR is opened, updated via commit, or marked ready for review
+              await addLabel('needs review');
+              await removeLabel('needs revision');
+              await removeLabel('approved');
+            } else if (context.eventName === 'pull_request_review') {
+              const state = context.payload.review.state;
+              if (state === 'changes_requested') {
+                await addLabel('needs revision');
+                await removeLabel('needs review');
+                await removeLabel('approved');
+              } else if (state === 'approved') {
+                await addLabel('approved');
+                await removeLabel('needs review');
+                await removeLabel('needs revision');
+              }
+            }
