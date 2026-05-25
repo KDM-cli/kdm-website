@@ -1,12 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, Star } from "lucide-react";
 
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetClose,
-} from "@/components/ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from "`@/components/ui/sheet`";
 
 export const Navbar = () => {
   return (
