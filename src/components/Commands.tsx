@@ -63,12 +63,12 @@ export const Commands = () => {
         </div>
 
         <div className="grid lg:grid-cols-[320px_1fr] gap-6">
-          <div className="flex lg:flex-col gap-px bg-border overflow-x-auto">
+          <div className="flex lg:flex-col gap-px bg-border">
             {commands.map((c, i) => (
               <button
                 key={c.name}
                 onClick={() => setActive(i)}
-                className={`text-left p-5 transition-colors whitespace-nowrap lg:whitespace-normal flex-1 min-h-[44px] ${
+                className={`text-left p-5 transition-colors whitespace-nowrap lg:whitespace-normal flex-1 ${
                   active === i
                     ? "bg-[rgba(255,255,255,0.05)] border-l-2 border-l-foreground"
                     : "bg-background hover:bg-[rgba(255,255,255,0.03)]"
