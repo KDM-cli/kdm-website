@@ -52,17 +52,17 @@ export const Hero = () => {
               </a>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-border">
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
               <div>
-                <div className="font-mono text-2xl sm:text-3xl font-light">12k+</div>
+                <div className="font-mono text-3xl font-light">12k+</div>
                 <div className="text-xs text-foreground/50 mt-1">Active clusters</div>
               </div>
               <div>
-                <div className="font-mono text-2xl sm:text-3xl font-light">99.99%</div>
+                <div className="font-mono text-3xl font-light">99.99%</div>
                 <div className="text-xs text-foreground/50 mt-1">Uptime SLA</div>
               </div>
               <div>
-                <div className="font-mono text-2xl sm:text-3xl font-light">&lt;50ms</div>
+                <div className="font-mono text-3xl font-light">&lt;50ms</div>
                 <div className="text-xs text-foreground/50 mt-1">Stream latency</div>
               </div>
             </div>
