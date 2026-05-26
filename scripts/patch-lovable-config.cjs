@@ -9,9 +9,9 @@ const pkgPath = path.resolve(
   __dirname,
   "..",
   "node_modules",
-  "@lovable.dev",
+  "`@lovable.dev`",
   "vite-tanstack-config",
-  "package.json"
+  "package.json",
 );
 
 if (!fs.existsSync(pkgPath)) {
