@@ -17,7 +17,7 @@ export const Footer = () => {
               Terms
             </Link>
             <a
-              href="https://github.com/KDM-cli/kdm-clim"
+              href="https://github.com/KDM-cli/kdm-cli"
               target="_blank"
               rel="noreferrer"
               className="hover:text-foreground/40 transition-colors"
