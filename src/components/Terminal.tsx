@@ -30,7 +30,7 @@ export const Terminal = () => {
           ~/cluster — kdm
         </span>
       </div>
-      <div className="p-5 font-mono text-sm leading-relaxed min-h-[360px]">
+      <div className="p-5 font-mono text-sm leading-relaxed min-h-[240px] md:min-h-[360px]">
         {lines.slice(0, visible).map((l, i) => (
           <div key={i} className="flex gap-2">
             {l.prompt && <span className="text-foreground/50">{l.prompt}</span>}
