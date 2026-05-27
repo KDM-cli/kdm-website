@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export const Footer = () => {
   return (
     <footer className="py-12">
@@ -8,10 +10,28 @@ export const Footer = () => {
             <span className="text-xs text-foreground/50">© 2026 KDM Labs</span>
           </div>
           <div className="flex gap-6 font-mono text-xs uppercase tracking-[1px] text-foreground/70">
-            <a href="#" className="hover:text-foreground/40 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-foreground/40 transition-colors">Terms</a>
-            <a href="#" className="hover:text-foreground/40 transition-colors">Status</a>
-            <a href="#" className="hover:text-foreground/40 transition-colors">GitHub</a>
+            <Link to="/privacy" className="hover:text-foreground/40 transition-colors">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:text-foreground/40 transition-colors">
+              Terms
+            </Link>
+            <a
+              href="https://github.com/KDM-cli/kdm-clim"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-foreground/40 transition-colors"
+            >
+              Status
+            </a>
+            <a
+              href="https://github.com/KDM-cli/kdm-cli"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-foreground/40 transition-colors"
+            >
+              GitHub
+            </a>
           </div>
         </div>
       </div>
