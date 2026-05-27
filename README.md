@@ -1,4 +1,7 @@
 <p align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="src/assets/logo.png">
     <img alt="KDM" src="src/assets/logo.png" width="128" height="128">
@@ -196,6 +199,21 @@ We welcome contributions! Please read:
 ## Contributors
 
 Thanks to everyone who has contributed to this project:
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://yuvraj-sarathe.github.io/Portfolio/"><img src="https://avatars.githubusercontent.com/u/216678101?v=4?s=100" width="100px;" alt="Yuvraj Sarathe"/><br /><sub><b>Yuvraj Sarathe</b></sub></a><br /><a href="#design-Yuvraj-Sarathe" title="Design">🎨</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <div align="center" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
   <a href="https://github.com/utkarsh232005" style="text-decoration: none; color: inherit;">
