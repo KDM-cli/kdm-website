@@ -22,7 +22,7 @@ function TermsPage() {
           <p>KDM CLI is provided "as is" without warranty of any kind, express or implied.</p>
           <p>
             You may use, modify, and distribute this software in accordance with the terms of the
-            MIT License.
+            GNU AFFERO GENERAL PUBLIC LICENSE.
           </p>
           <p>
             The authors and contributors are not liable for any damages arising from the use of this
