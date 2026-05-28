@@ -215,7 +215,7 @@ Thanks to everyone who has contributed to this project:
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-<div align="center" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+<!-- <div align="center" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
   <a href="https://github.com/utkarsh232005" style="text-decoration: none; color: inherit;">
     <img src="https://avatars.githubusercontent.com/u/137105846?v=4" width="64" height="64" alt="Utkarsh Patrikar" style="border-radius: 50%; display: block; margin: 0 auto;">
     <strong>Utkarsh Patrikar</strong><br>
@@ -226,7 +226,7 @@ Thanks to everyone who has contributed to this project:
     <strong>Yuvraj Sarathe</strong><br>
     <span style="font-size: 0.85em;">Contributor</span>
   </a>
-</div>
+</div> -->
 
 ---
 
