@@ -23,7 +23,7 @@ Plans:
 
 Plans:
 - [x] `01-01-PLAN.md` — ProductConfig types + kdm.ts + docker-guard.ts + registry index
-- [ ] `01-02-PLAN.md` — ProductContext provider + useProduct hook + wire into root shell
+- [x] `01-02-PLAN.md` — ProductContext provider + useProduct hook + wire into root shell
 
 ---
 
