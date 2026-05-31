@@ -74,7 +74,7 @@ Plans:
 - **Wave:** 3
 
 Plans:
-- [ ] `04b-01-PLAN.md` — Parameterize Features + Commands + CTA with useProduct hook
+- [x] `04b-01-PLAN.md` — Parameterize Features + Commands + CTA with useProduct hook
 
 ---
 
