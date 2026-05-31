@@ -64,7 +64,7 @@ Plans:
 - **Wave:** 3
 
 Plans:
-- [ ] `04a-01-PLAN.md` — Parameterize Hero + Terminal components with useProduct hook
+- [x] `04a-01-PLAN.md` — Parameterize Hero + Terminal components with useProduct hook
 
 ---
 
