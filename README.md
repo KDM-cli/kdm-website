@@ -196,7 +196,7 @@ We welcome contributions! Please read:
 ## Contributors
 
 <a href="https://github.com/KDM-cli/kdm-website/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=KDM-cli/kdm-website" />
+  <img alt="Project contributors" src="https://contrib.rocks/image?repo=KDM-cli/kdm-website" />
 </a>
 
 Thanks to everyone who has contributed to this project🎊
