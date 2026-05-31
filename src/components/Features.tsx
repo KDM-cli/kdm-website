@@ -20,7 +20,7 @@ export const Features = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {product.features.map((f) => {
-            const Icon = (LucideIcons as Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>>)[f.icon];
+            const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>>)[f.icon];
             return (
               <div
                 key={f.title}
