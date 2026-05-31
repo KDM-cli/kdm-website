@@ -1,14 +1,16 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { DocView } from "@/components/docs/DocView";
-import { getDoc } from "@/lib/docs";
+import { createDocLoader } from "@/lib/docs";
 
-export const Route = createFileRoute("/docs/$slug")({
-  component: DocPage,
+const { getDoc } = createDocLoader("kdm");
+
+export const Route = createFileRoute("/kdm/docs/$slug")({
+  component: KdmDocPage,
   notFoundComponent: () => (
     <div className="text-foreground">
       <h1 className="font-mono text-3xl">Doc not found</h1>
       <p className="text-foreground/60 mt-2">
-        Drop a Markdown file in <code>src/docs/</code> to add this page.
+        Drop a Markdown file in <code>src/docs/kdm/</code> to add this page.
       </p>
     </div>
   ),
@@ -23,7 +25,7 @@ export const Route = createFileRoute("/docs/$slug")({
   },
 });
 
-function DocPage() {
+function KdmDocPage() {
   const { slug } = Route.useParams();
   const doc = getDoc(slug);
   if (!doc) throw notFound();

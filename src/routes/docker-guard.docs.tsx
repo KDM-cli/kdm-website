@@ -1,19 +1,21 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { docList } from "@/lib/docs";
+import { createDocLoader } from "@/lib/docs";
 
-export const Route = createFileRoute("/docs")({
-  component: DocsLayout,
+const { docList } = createDocLoader("docker-guard");
+
+export const Route = createFileRoute("/docker-guard/docs")({
+  component: DockerGuardDocsLayout,
   head: () => ({
     meta: [
-      { title: "Docs — KDM" },
-      { name: "description", content: "Documentation for KDM, the Kubernetes & Docker Monitor CLI." },
+      { title: "Docs — Docker Guard" },
+      { name: "description", content: "Documentation for Docker Guard, the real-time container security CLI." },
     ],
   }),
 });
 
-function DocsLayout() {
+function DockerGuardDocsLayout() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -24,7 +26,7 @@ function DocsLayout() {
           </p>
           <nav className="flex flex-col gap-2 text-sm">
             {docList.map((d) => {
-              const to = d.slug ? `/docs/${d.slug}` : "/docs";
+              const to = d.slug ? `/docker-guard/docs/${d.slug}` : "/docker-guard/docs";
               return (
                 <Link
                   key={to}

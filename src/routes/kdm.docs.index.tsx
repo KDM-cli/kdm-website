@@ -1,9 +1,11 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { DocView } from "@/components/docs/DocView";
-import { getDoc } from "@/lib/docs";
+import { createDocLoader } from "@/lib/docs";
 
-export const Route = createFileRoute("/docs/")({
-  component: DocsIndex,
+const { getDoc } = createDocLoader("kdm");
+
+export const Route = createFileRoute("/kdm/docs/")({
+  component: KdmDocsIndex,
   head: () => {
     const doc = getDoc("");
     return {
@@ -15,7 +17,7 @@ export const Route = createFileRoute("/docs/")({
   },
 });
 
-function DocsIndex() {
+function KdmDocsIndex() {
   const doc = getDoc("");
   if (!doc) throw notFound();
   return <DocView doc={doc} />;

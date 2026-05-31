@@ -12,11 +12,16 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as KdmRouteImport } from './routes/kdm'
-import { Route as DocsRouteImport } from './routes/docs'
 import { Route as DockerGuardRouteImport } from './routes/docker-guard'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DocsIndexRouteImport } from './routes/docs.index'
-import { Route as DocsSlugRouteImport } from './routes/docs.$slug'
+import { Route as KdmIndexRouteImport } from './routes/kdm.index'
+import { Route as DockerGuardIndexRouteImport } from './routes/docker-guard.index'
+import { Route as KdmDocsRouteImport } from './routes/kdm.docs'
+import { Route as DockerGuardDocsRouteImport } from './routes/docker-guard.docs'
+import { Route as KdmDocsIndexRouteImport } from './routes/kdm.docs.index'
+import { Route as DockerGuardDocsIndexRouteImport } from './routes/docker-guard.docs.index'
+import { Route as KdmDocsSlugRouteImport } from './routes/kdm.docs.$slug'
+import { Route as DockerGuardDocsSlugRouteImport } from './routes/docker-guard.docs.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -33,11 +38,6 @@ const KdmRoute = KdmRouteImport.update({
   path: '/kdm',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocsRoute = DocsRouteImport.update({
-  id: '/docs',
-  path: '/docs',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DockerGuardRoute = DockerGuardRouteImport.update({
   id: '/docker-guard',
   path: '/docker-guard',
@@ -48,84 +48,137 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocsIndexRoute = DocsIndexRouteImport.update({
+const KdmIndexRoute = KdmIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => DocsRoute,
+  getParentRoute: () => KdmRoute,
 } as any)
-const DocsSlugRoute = DocsSlugRouteImport.update({
+const DockerGuardIndexRoute = DockerGuardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DockerGuardRoute,
+} as any)
+const KdmDocsRoute = KdmDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => KdmRoute,
+} as any)
+const DockerGuardDocsRoute = DockerGuardDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => DockerGuardRoute,
+} as any)
+const KdmDocsIndexRoute = KdmDocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KdmDocsRoute,
+} as any)
+const DockerGuardDocsIndexRoute = DockerGuardDocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DockerGuardDocsRoute,
+} as any)
+const KdmDocsSlugRoute = KdmDocsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => DocsRoute,
+  getParentRoute: () => KdmDocsRoute,
+} as any)
+const DockerGuardDocsSlugRoute = DockerGuardDocsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DockerGuardDocsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/docker-guard': typeof DockerGuardRoute
-  '/docs': typeof DocsRouteWithChildren
-  '/kdm': typeof KdmRoute
+  '/docker-guard': typeof DockerGuardRouteWithChildren
+  '/kdm': typeof KdmRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs/': typeof DocsIndexRoute
+  '/docker-guard/docs': typeof DockerGuardDocsRouteWithChildren
+  '/kdm/docs': typeof KdmDocsRouteWithChildren
+  '/docker-guard/': typeof DockerGuardIndexRoute
+  '/kdm/': typeof KdmIndexRoute
+  '/docker-guard/docs/$slug': typeof DockerGuardDocsSlugRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/docker-guard/docs/': typeof DockerGuardDocsIndexRoute
+  '/kdm/docs/': typeof KdmDocsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/docker-guard': typeof DockerGuardRoute
-  '/kdm': typeof KdmRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs': typeof DocsIndexRoute
+  '/docker-guard': typeof DockerGuardIndexRoute
+  '/kdm': typeof KdmIndexRoute
+  '/docker-guard/docs/$slug': typeof DockerGuardDocsSlugRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/docker-guard/docs': typeof DockerGuardDocsIndexRoute
+  '/kdm/docs': typeof KdmDocsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/docker-guard': typeof DockerGuardRoute
-  '/docs': typeof DocsRouteWithChildren
-  '/kdm': typeof KdmRoute
+  '/docker-guard': typeof DockerGuardRouteWithChildren
+  '/kdm': typeof KdmRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs/': typeof DocsIndexRoute
+  '/docker-guard/docs': typeof DockerGuardDocsRouteWithChildren
+  '/kdm/docs': typeof KdmDocsRouteWithChildren
+  '/docker-guard/': typeof DockerGuardIndexRoute
+  '/kdm/': typeof KdmIndexRoute
+  '/docker-guard/docs/$slug': typeof DockerGuardDocsSlugRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/docker-guard/docs/': typeof DockerGuardDocsIndexRoute
+  '/kdm/docs/': typeof KdmDocsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/docker-guard'
-    | '/docs'
     | '/kdm'
     | '/privacy'
     | '/terms'
-    | '/docs/$slug'
-    | '/docs/'
+    | '/docker-guard/docs'
+    | '/kdm/docs'
+    | '/docker-guard/'
+    | '/kdm/'
+    | '/docker-guard/docs/$slug'
+    | '/kdm/docs/$slug'
+    | '/docker-guard/docs/'
+    | '/kdm/docs/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/docker-guard'
-    | '/kdm'
     | '/privacy'
     | '/terms'
-    | '/docs/$slug'
-    | '/docs'
+    | '/docker-guard'
+    | '/kdm'
+    | '/docker-guard/docs/$slug'
+    | '/kdm/docs/$slug'
+    | '/docker-guard/docs'
+    | '/kdm/docs'
   id:
     | '__root__'
     | '/'
     | '/docker-guard'
-    | '/docs'
     | '/kdm'
     | '/privacy'
     | '/terms'
-    | '/docs/$slug'
-    | '/docs/'
+    | '/docker-guard/docs'
+    | '/kdm/docs'
+    | '/docker-guard/'
+    | '/kdm/'
+    | '/docker-guard/docs/$slug'
+    | '/kdm/docs/$slug'
+    | '/docker-guard/docs/'
+    | '/kdm/docs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DockerGuardRoute: typeof DockerGuardRoute
-  DocsRoute: typeof DocsRouteWithChildren
-  KdmRoute: typeof KdmRoute
+  DockerGuardRoute: typeof DockerGuardRouteWithChildren
+  KdmRoute: typeof KdmRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
 }
@@ -153,13 +206,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KdmRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs': {
-      id: '/docs'
-      path: '/docs'
-      fullPath: '/docs'
-      preLoaderRoute: typeof DocsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/docker-guard': {
       id: '/docker-guard'
       path: '/docker-guard'
@@ -174,40 +220,122 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs/': {
-      id: '/docs/'
+    '/kdm/': {
+      id: '/kdm/'
       path: '/'
-      fullPath: '/docs/'
-      preLoaderRoute: typeof DocsIndexRouteImport
-      parentRoute: typeof DocsRoute
+      fullPath: '/kdm/'
+      preLoaderRoute: typeof KdmIndexRouteImport
+      parentRoute: typeof KdmRoute
     }
-    '/docs/$slug': {
-      id: '/docs/$slug'
+    '/docker-guard/': {
+      id: '/docker-guard/'
+      path: '/'
+      fullPath: '/docker-guard/'
+      preLoaderRoute: typeof DockerGuardIndexRouteImport
+      parentRoute: typeof DockerGuardRoute
+    }
+    '/kdm/docs': {
+      id: '/kdm/docs'
+      path: '/docs'
+      fullPath: '/kdm/docs'
+      preLoaderRoute: typeof KdmDocsRouteImport
+      parentRoute: typeof KdmRoute
+    }
+    '/docker-guard/docs': {
+      id: '/docker-guard/docs'
+      path: '/docs'
+      fullPath: '/docker-guard/docs'
+      preLoaderRoute: typeof DockerGuardDocsRouteImport
+      parentRoute: typeof DockerGuardRoute
+    }
+    '/kdm/docs/': {
+      id: '/kdm/docs/'
+      path: '/'
+      fullPath: '/kdm/docs/'
+      preLoaderRoute: typeof KdmDocsIndexRouteImport
+      parentRoute: typeof KdmDocsRoute
+    }
+    '/docker-guard/docs/': {
+      id: '/docker-guard/docs/'
+      path: '/'
+      fullPath: '/docker-guard/docs/'
+      preLoaderRoute: typeof DockerGuardDocsIndexRouteImport
+      parentRoute: typeof DockerGuardDocsRoute
+    }
+    '/kdm/docs/$slug': {
+      id: '/kdm/docs/$slug'
       path: '/$slug'
-      fullPath: '/docs/$slug'
-      preLoaderRoute: typeof DocsSlugRouteImport
-      parentRoute: typeof DocsRoute
+      fullPath: '/kdm/docs/$slug'
+      preLoaderRoute: typeof KdmDocsSlugRouteImport
+      parentRoute: typeof KdmDocsRoute
+    }
+    '/docker-guard/docs/$slug': {
+      id: '/docker-guard/docs/$slug'
+      path: '/$slug'
+      fullPath: '/docker-guard/docs/$slug'
+      preLoaderRoute: typeof DockerGuardDocsSlugRouteImport
+      parentRoute: typeof DockerGuardDocsRoute
     }
   }
 }
 
-interface DocsRouteChildren {
-  DocsSlugRoute: typeof DocsSlugRoute
-  DocsIndexRoute: typeof DocsIndexRoute
+interface DockerGuardDocsRouteChildren {
+  DockerGuardDocsSlugRoute: typeof DockerGuardDocsSlugRoute
+  DockerGuardDocsIndexRoute: typeof DockerGuardDocsIndexRoute
 }
 
-const DocsRouteChildren: DocsRouteChildren = {
-  DocsSlugRoute: DocsSlugRoute,
-  DocsIndexRoute: DocsIndexRoute,
+const DockerGuardDocsRouteChildren: DockerGuardDocsRouteChildren = {
+  DockerGuardDocsSlugRoute: DockerGuardDocsSlugRoute,
+  DockerGuardDocsIndexRoute: DockerGuardDocsIndexRoute,
 }
 
-const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
+const DockerGuardDocsRouteWithChildren = DockerGuardDocsRoute._addFileChildren(
+  DockerGuardDocsRouteChildren,
+)
+
+interface DockerGuardRouteChildren {
+  DockerGuardDocsRoute: typeof DockerGuardDocsRouteWithChildren
+  DockerGuardIndexRoute: typeof DockerGuardIndexRoute
+}
+
+const DockerGuardRouteChildren: DockerGuardRouteChildren = {
+  DockerGuardDocsRoute: DockerGuardDocsRouteWithChildren,
+  DockerGuardIndexRoute: DockerGuardIndexRoute,
+}
+
+const DockerGuardRouteWithChildren = DockerGuardRoute._addFileChildren(
+  DockerGuardRouteChildren,
+)
+
+interface KdmDocsRouteChildren {
+  KdmDocsSlugRoute: typeof KdmDocsSlugRoute
+  KdmDocsIndexRoute: typeof KdmDocsIndexRoute
+}
+
+const KdmDocsRouteChildren: KdmDocsRouteChildren = {
+  KdmDocsSlugRoute: KdmDocsSlugRoute,
+  KdmDocsIndexRoute: KdmDocsIndexRoute,
+}
+
+const KdmDocsRouteWithChildren =
+  KdmDocsRoute._addFileChildren(KdmDocsRouteChildren)
+
+interface KdmRouteChildren {
+  KdmDocsRoute: typeof KdmDocsRouteWithChildren
+  KdmIndexRoute: typeof KdmIndexRoute
+}
+
+const KdmRouteChildren: KdmRouteChildren = {
+  KdmDocsRoute: KdmDocsRouteWithChildren,
+  KdmIndexRoute: KdmIndexRoute,
+}
+
+const KdmRouteWithChildren = KdmRoute._addFileChildren(KdmRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DockerGuardRoute: DockerGuardRoute,
-  DocsRoute: DocsRouteWithChildren,
-  KdmRoute: KdmRoute,
+  DockerGuardRoute: DockerGuardRouteWithChildren,
+  KdmRoute: KdmRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
 }
