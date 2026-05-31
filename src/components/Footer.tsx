@@ -21,12 +21,12 @@ export const Footer = () => {
               Terms
             </Link>
             <a
-              href={product.githubUrl}
+              href={`${product.githubUrl}/issues`}
               target="_blank"
               rel="noreferrer"
               className="hover:text-foreground/40 transition-colors"
             >
-              Status
+              Issues
             </a>
             <a
               href={product.githubUrl}
