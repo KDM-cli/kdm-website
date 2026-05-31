@@ -1,12 +1,6 @@
 import { marked } from "marked";
 
-// Eagerly load every Markdown file under src/docs as raw strings.
-// Drop a new .md file in src/docs/ and it shows up automatically.
-const modules = import.meta.glob("../docs/*.md", {
-  query: "?raw",
-  import: "default",
-  eager: true,
-}) as Record<string, string>;
+export type DocSlug = "kdm" | "docker-guard";
 
 export interface DocMeta {
   slug: string;
@@ -34,25 +28,40 @@ function parseFrontmatter(raw: string): { data: Record<string, string>; body: st
   return { data, body: match[2] };
 }
 
-const docs: Doc[] = Object.entries(modules)
-  .map(([path, raw]) => {
-    const file = path.split("/").pop()!.replace(/\.md$/, "");
-    const slug = file === "index" ? "" : file;
-    const { data, body } = parseFrontmatter(raw);
-    return {
-      slug,
-      title: data.title ?? slug ?? "Untitled",
-      description: data.description,
-      eyebrow: data.eyebrow,
-      order: data.order ? Number(data.order) : 999,
-      html: marked.parse(body, { async: false }) as string,
-    };
-  })
-  .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+export function createDocLoader(product: DocSlug) {
+  const modules: Record<string, string> =
+    product === "kdm"
+      ? import.meta.glob("../docs/kdm/*.md", {
+          query: "?raw",
+          import: "default",
+          eager: true,
+        })
+      : import.meta.glob("../docs/docker-guard/*.md", {
+          query: "?raw",
+          import: "default",
+          eager: true,
+        });
 
-export const allDocs: Doc[] = docs;
-export const docList: DocMeta[] = docs.map(({ html: _h, ...meta }) => meta);
+  const docs: Doc[] = Object.entries(modules)
+    .map(([path, raw]) => {
+      const file = path.split("/").pop()!.replace(/\.md$/, "");
+      const slug = file === "index" ? "" : file;
+      const { data, body } = parseFrontmatter(raw);
+      return {
+        slug,
+        title: data.title ?? slug ?? "Untitled",
+        description: data.description,
+        eyebrow: data.eyebrow,
+        order: data.order ? Number(data.order) : 999,
+        html: marked.parse(body, { async: false }) as string,
+      };
+    })
+    .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
 
-export function getDoc(slug: string): Doc | undefined {
-  return docs.find((d) => d.slug === slug);
+  const allDocs: Doc[] = docs;
+  const docList: DocMeta[] = docs.map(({ html: _h, ...meta }) => meta);
+  const getDoc = (slug: string): Doc | undefined =>
+    docs.find((d) => d.slug === slug);
+
+  return { allDocs, docList, getDoc };
 }

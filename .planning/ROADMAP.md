@@ -34,7 +34,7 @@ Plans:
 
 Plans:
 - [x] `02a-01-PLAN.md` — Hub page at `/` + product layout route shells (`/kdm`, `/docker-guard`)
-- [ ] `02a-02-PLAN.md` — Product-scoped docs route groups (`/kdm/docs/*`, `/docker-guard/docs/*`)
+- [x] `02a-02-PLAN.md` — Product-scoped docs route groups (`/kdm/docs/*`, `/docker-guard/docs/*`)
 
 ---
 
