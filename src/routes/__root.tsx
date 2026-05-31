@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import logoUrl from "@/assets/logo.png";
+import { ProductProvider } from "@/context/ProductContext";
 
 function NotFoundComponent() {
   return (
@@ -120,7 +121,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <ProductProvider>
+        <Outlet />
+      </ProductProvider>
     </QueryClientProvider>
   );
 }
