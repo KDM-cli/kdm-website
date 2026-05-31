@@ -13,7 +13,7 @@ Install the CLI, point it at a cluster, and run `kdm show pods` to verify the co
 
 ## Adding new docs
 
-Documentation pages are ad-hoc Markdown files. Create a new file at `src/docs/<slug>.md` with frontmatter and it appears in the sidebar automatically — no route or config changes needed.
+Documentation pages are ad-hoc Markdown files. Create a new file at `src/docs/kdm/<slug>.md` with frontmatter and it appears in the sidebar automatically — no route or config changes needed.
 
 ```md
 ---
