@@ -1,54 +1,10 @@
 import { useState } from "react";
-
-const commands = [
-  {
-    name: "show",
-    sig: "kdm show <target>",
-    desc: "List running runners, pods, containers, or minikube clusters.",
-    output: `> kdm show pods
-NAMESPACE   NAME                    READY   STATUS    AGE
-default     api-server-7d4f8b       1/1     Running   3d
-default     worker-queue-2c9a1      1/1     Running   3d
-ingress     traefik-controller-x9   1/1     Running  14d
-monitoring  prometheus-0            2/2     Running  21d`,
-  },
-  {
-    name: "health",
-    sig: "kdm health <target>",
-    desc: "Detailed health, liveness, and resource pressure diagnostics.",
-    output: `> kdm health pods
-[ok]    api-server-7d4f8b       healthy    cpu 12%   mem 248Mi
-[ok]    worker-queue-2c9a1      healthy    cpu 34%   mem 512Mi
-[warn]  log-shipper-abc12       degraded   restarts: 3 (last 1h)
-[fail]  batch-runner-99fa1      failing    OOMKilled · 2x in 5m`,
-  },
-  {
-    name: "watch",
-    sig: "kdm watch",
-    desc: "Live monitoring dashboard right inside your terminal.",
-    output: `> kdm watch
-+- Live - 14:02:31 ----------------------------+
-| pods: 24 running · 1 pending · 0 failed      |
-| cpu:  ######========  62%                    |
-| mem:  ####==========  41%                    |
-| net:  in 124 MB/s   out 38 MB/s              |
-+----------------------------------------------+`,
-  },
-  {
-    name: "logs",
-    sig: "kdm logs <name>",
-    desc: "Tail logs with structured parsing and instant search.",
-    output: `> kdm logs api-server-7d4f8b -f
-14:02:30 INFO  request GET /api/users 200 12ms
-14:02:30 INFO  request POST /api/auth 201 48ms
-14:02:31 WARN  cache miss key=user:8821
-14:02:31 INFO  request GET /api/orders 200 18ms`,
-  },
-];
+import { useProduct } from "@/context/ProductContext";
 
 export const Commands = () => {
   const [active, setActive] = useState(0);
-  const cmd = commands[active];
+  const product = useProduct();
+  const cmd = product.commands[active];
 
   return (
     <section id="commands" className="py-24 lg:py-32 border-b border-border">
@@ -58,13 +14,13 @@ export const Commands = () => {
             // commands
           </p>
           <h2 className="text-4xl lg:text-5xl font-normal tracking-tight mb-4">
-            Simple syntax. Powerful output.
+            {product.displayName} commands
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-[320px_1fr] gap-6">
           <div className="flex lg:flex-col gap-px bg-border overflow-x-auto">
-            {commands.map((c, i) => (
+            {product.commands.map((c, i) => (
               <button
                 key={c.name}
                 onClick={() => setActive(i)}
