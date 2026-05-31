@@ -54,7 +54,7 @@ Plans:
 - **Wave:** 3
 
 Plans:
-- [ ] `03-01-PLAN.md` — Product-aware Navbar + Footer, neutral hub nav variant
+- [x] `03-01-PLAN.md` — Product-aware Navbar + Footer, neutral hub nav variant
 
 ---
 
