@@ -77,8 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "KDM Ecosystem" },
       {
         name: "description",
-        content:
-          "Open-source CLI ecosystem for Kubernetes and Docker monitoring.",
+        content: "Open-source CLI ecosystem for Kubernetes and Docker monitoring.",
       },
       { property: "og:title", content: "KDM Ecosystem" },
       {

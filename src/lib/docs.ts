@@ -22,7 +22,10 @@ function parseFrontmatter(raw: string): { data: Record<string, string>; body: st
     const idx = line.indexOf(":");
     if (idx === -1) continue;
     const key = line.slice(0, idx).trim();
-    const value = line.slice(idx + 1).trim().replace(/^["']|["']$/g, "");
+    const value = line
+      .slice(idx + 1)
+      .trim()
+      .replace(/^["']|["']$/g, "");
     if (key) data[key] = value;
   }
   return { data, body: match[2] };
@@ -60,8 +63,7 @@ export function createDocLoader(product: DocSlug) {
 
   const allDocs: Doc[] = docs;
   const docList: DocMeta[] = docs.map(({ html: _h, ...meta }) => meta);
-  const getDoc = (slug: string): Doc | undefined =>
-    docs.find((d) => d.slug === slug);
+  const getDoc = (slug: string): Doc | undefined => docs.find((d) => d.slug === slug);
 
   return { allDocs, docList, getDoc };
 }

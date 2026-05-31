@@ -51,32 +51,32 @@ The website serves as both a landing page and documentation hub for the KDM CLI 
 
 ### Key Features (of KDM CLI)
 
-| Feature | Description |
-|---------|-------------|
-| **Unified visibility** | `kdm show <target>` — list pods, containers, runners, and Minikube nodes across clouds |
-| **Health diagnostics** | `kdm health <target>` — probe liveness, readiness, restarts, and resource pressure |
-| **Live watch mode** | `kdm watch` — real-time streaming metrics with millisecond updates |
-| **Smart log tailing** | `kdm logs <name>` — structured log parsing with multi-line stitching and instant search |
-| **Cloud-synced state** | Securely sync cluster state across your team |
-| **Zero-trust by default** | Read-only kubeconfig context, scoped tokens, end-to-end encrypted streams |
+| Feature                   | Description                                                                             |
+| ------------------------- | --------------------------------------------------------------------------------------- |
+| **Unified visibility**    | `kdm show <target>` — list pods, containers, runners, and Minikube nodes across clouds  |
+| **Health diagnostics**    | `kdm health <target>` — probe liveness, readiness, restarts, and resource pressure      |
+| **Live watch mode**       | `kdm watch` — real-time streaming metrics with millisecond updates                      |
+| **Smart log tailing**     | `kdm logs <name>` — structured log parsing with multi-line stitching and instant search |
+| **Cloud-synced state**    | Securely sync cluster state across your team                                            |
+| **Zero-trust by default** | Read-only kubeconfig context, scoped tokens, end-to-end encrypted streams               |
 
-> **Note:** This repo hosts the *website*. The KDM CLI tool lives at [github.com/KDM-cli/kdm-cli](https://github.com/KDM-cli/kdm-cli).
+> **Note:** This repo hosts the _website_. The KDM CLI tool lives at [github.com/KDM-cli/kdm-cli](https://github.com/KDM-cli/kdm-cli).
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| **Framework** | [TanStack Start](https://start.tanstack.com/) (React SSR) |
-| **Routing** | [TanStack Router](https://tanstack.com/router) (file-based) |
-| **Data Fetching** | [TanStack Query](https://tanstack.com/query) |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) + [tw-animate-css](https://github.com/tw-in-js/tw-animate-css) |
-| **UI Primitives** | [shadcn/ui](https://ui.shadcn.com/) (Radix-based) |
-| **Build Tool** | [Vite](https://vitejs.dev/) |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **Deployment** | [Cloudflare Workers](https://workers.cloudflare.com/) / [Vercel](https://vercel.com/) |
+| Layer             | Technology                                                                                                 |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Framework**     | [TanStack Start](https://start.tanstack.com/) (React SSR)                                                  |
+| **Routing**       | [TanStack Router](https://tanstack.com/router) (file-based)                                                |
+| **Data Fetching** | [TanStack Query](https://tanstack.com/query)                                                               |
+| **Styling**       | [Tailwind CSS v4](https://tailwindcss.com/) + [tw-animate-css](https://github.com/tw-in-js/tw-animate-css) |
+| **UI Primitives** | [shadcn/ui](https://ui.shadcn.com/) (Radix-based)                                                          |
+| **Build Tool**    | [Vite](https://vitejs.dev/)                                                                                |
+| **Language**      | [TypeScript](https://www.typescriptlang.org/)                                                              |
+| **Icons**         | [Lucide React](https://lucide.dev/)                                                                        |
+| **Deployment**    | [Cloudflare Workers](https://workers.cloudflare.com/) / [Vercel](https://vercel.com/)                      |
 
 ---
 
@@ -157,14 +157,14 @@ kdm-website/
 
 ## Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server with HMR |
-| `npm run build` | Build for production |
-| `npm run build:dev` | Build in development mode |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | Run ESLint across the project |
-| `npm run format` | Format code with Prettier |
+| Script              | Description                       |
+| ------------------- | --------------------------------- |
+| `npm run dev`       | Start development server with HMR |
+| `npm run build`     | Build for production              |
+| `npm run build:dev` | Build in development mode         |
+| `npm run preview`   | Preview production build locally  |
+| `npm run lint`      | Run ESLint across the project     |
+| `npm run format`    | Format code with Prettier         |
 
 ---
 
@@ -199,6 +199,7 @@ We welcome contributions! Please read:
 ## Contributors
 
 Thanks to everyone who has contributed to this project:
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->

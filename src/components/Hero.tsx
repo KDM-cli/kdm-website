@@ -41,14 +41,24 @@ export const Hero = () => {
             >
               <span className="text-foreground/50">$</span>
               <span className="flex-1 text-left">{product.installCommand}</span>
-              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4 text-foreground/50 group-hover:text-foreground transition-colors" />}
+              {copied ? (
+                <Check className="h-4 w-4" />
+              ) : (
+                <Copy className="h-4 w-4 text-foreground/50 group-hover:text-foreground transition-colors" />
+              )}
             </button>
 
             <div className="flex flex-wrap gap-3">
-              <a href={product.docsPath} className="btn-mono px-6 py-3 bg-foreground text-background hover:bg-foreground/90 transition-colors">
+              <a
+                href={product.docsPath}
+                className="btn-mono px-6 py-3 bg-foreground text-background hover:bg-foreground/90 transition-colors"
+              >
                 {product.ctaPrimaryText}
               </a>
-              <a href={product.githubUrl} className="btn-mono px-6 py-3 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors">
+              <a
+                href={product.githubUrl}
+                className="btn-mono px-6 py-3 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              >
                 View on GitHub
               </a>
             </div>

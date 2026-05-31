@@ -64,16 +64,16 @@ src/
 
 ## Tech Stack
 
-| Tool | Purpose |
-|------|---------|
-| [TanStack Start](https://start.tanstack.com/) | React SSR framework |
-| [TanStack Router](https://tanstack.com/router) | File-based routing |
-| [TanStack Query](https://tanstack.com/query) | Data fetching and caching |
-| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first CSS |
-| [shadcn/ui](https://ui.shadcn.com/) | UI component primitives |
-| [Vite](https://vitejs.dev/) | Build tool |
-| [Cloudflare Workers](https://workers.cloudflare.com/) | Deployment target |
-| [Vercel](https://vercel.com/) | Alternative deployment target |
+| Tool                                                  | Purpose                       |
+| ----------------------------------------------------- | ----------------------------- |
+| [TanStack Start](https://start.tanstack.com/)         | React SSR framework           |
+| [TanStack Router](https://tanstack.com/router)        | File-based routing            |
+| [TanStack Query](https://tanstack.com/query)          | Data fetching and caching     |
+| [Tailwind CSS v4](https://tailwindcss.com/)           | Utility-first CSS             |
+| [shadcn/ui](https://ui.shadcn.com/)                   | UI component primitives       |
+| [Vite](https://vitejs.dev/)                           | Build tool                    |
+| [Cloudflare Workers](https://workers.cloudflare.com/) | Deployment target             |
+| [Vercel](https://vercel.com/)                         | Alternative deployment target |
 
 ## License
 

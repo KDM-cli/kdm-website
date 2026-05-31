@@ -7,7 +7,7 @@ export const Terminal = () => {
 
   useEffect(() => {
     const timers = product.terminalLines.map((_, i) =>
-      setTimeout(() => setVisible((v) => Math.max(v, i + 1)), 300 + i * 280)
+      setTimeout(() => setVisible((v) => Math.max(v, i + 1)), 300 + i * 280),
     );
     return () => timers.forEach(clearTimeout);
   }, []);

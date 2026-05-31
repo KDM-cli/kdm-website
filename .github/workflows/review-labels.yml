@@ -21,7 +21,7 @@ jobs:
             const { owner, repo } = context.repo;
             const number = context.issue.number;
             const pr = context.payload.pull_request;
-            
+
             // Skip draft PRs
             if (pr && pr.draft) return;
 

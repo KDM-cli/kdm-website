@@ -14,13 +14,19 @@ export const Features = () => {
             Built for {product.displayName}.
           </h2>
           <p className="text-base text-foreground/70">
-            From quick checks to deep diagnostics, {product.displayName} gives you the tools to stay on top of your infrastructure.
+            From quick checks to deep diagnostics, {product.displayName} gives you the tools to stay
+            on top of your infrastructure.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {product.features.map((f) => {
-            const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>>)[f.icon];
+            const Icon = (
+              LucideIcons as unknown as Record<
+                string,
+                React.ComponentType<{ className?: string; strokeWidth?: number }>
+              >
+            )[f.icon];
             return (
               <div
                 key={f.title}

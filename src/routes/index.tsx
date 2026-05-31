@@ -39,9 +39,7 @@ function ProductCard({ product, to }: { product: ProductConfig; to: string }) {
       <h2 className="font-mono text-xl uppercase tracking-[1.4px] text-foreground mb-3">
         {product.displayName}
       </h2>
-      <p className="text-sm text-foreground/50 mb-6 leading-relaxed">
-        {product.description}
-      </p>
+      <p className="text-sm text-foreground/50 mb-6 leading-relaxed">{product.description}</p>
       <div className="flex items-center gap-2 mb-6">
         <span className="btn-mono px-4 py-2 border border-[rgba(255,255,255,0.2)] text-foreground group-hover:bg-[rgba(255,255,255,0.05)] transition-colors">
           Explore {product.displayName}
@@ -65,9 +63,7 @@ function HubPage() {
           <h1 className="font-mono text-4xl md:text-5xl uppercase tracking-[1.4px] text-foreground mb-4">
             KDM Ecosystem
           </h1>
-          <p className="text-sm text-foreground/50">
-            Choose your tool
-          </p>
+          <p className="text-sm text-foreground/50">Choose your tool</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <ProductCard product={kdmProduct} to="/kdm" />
@@ -81,16 +77,10 @@ function HubPage() {
               kdm
             </span>
             <div className="flex gap-6 font-mono text-xs uppercase tracking-[1px] text-foreground/70">
-              <Link
-                to="/privacy"
-                className="hover:text-foreground/40 transition-colors"
-              >
+              <Link to="/privacy" className="hover:text-foreground/40 transition-colors">
                 Privacy
               </Link>
-              <Link
-                to="/terms"
-                className="hover:text-foreground/40 transition-colors"
-              >
+              <Link to="/terms" className="hover:text-foreground/40 transition-colors">
                 Terms
               </Link>
             </div>

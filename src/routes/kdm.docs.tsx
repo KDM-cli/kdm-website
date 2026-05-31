@@ -10,7 +10,10 @@ export const Route = createFileRoute("/kdm/docs")({
   head: () => ({
     meta: [
       { title: "Docs — KDM" },
-      { name: "description", content: "Documentation for KDM, the Kubernetes & Docker Monitor CLI." },
+      {
+        name: "description",
+        content: "Documentation for KDM, the Kubernetes & Docker Monitor CLI.",
+      },
     ],
   }),
 });

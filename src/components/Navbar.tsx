@@ -2,12 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, Star } from "lucide-react";
 
 import { useProduct } from "@/context/ProductContext";
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetClose,
-} from "@/components/ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from "@/components/ui/sheet";
 
 export const Navbar = () => {
   const product = useProduct();
@@ -19,10 +14,25 @@ export const Navbar = () => {
           {product.brandName}
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm">
-          <a href="#features" className="text-foreground hover:text-foreground/50 transition-colors">Features</a>
-          <a href="#commands" className="text-foreground hover:text-foreground/50 transition-colors">Commands</a>
+          <a
+            href="#features"
+            className="text-foreground hover:text-foreground/50 transition-colors"
+          >
+            Features
+          </a>
+          <a
+            href="#commands"
+            className="text-foreground hover:text-foreground/50 transition-colors"
+          >
+            Commands
+          </a>
 
-          <a href={product.docsPath} className="text-foreground hover:text-foreground/50 transition-colors">Docs</a>
+          <a
+            href={product.docsPath}
+            className="text-foreground hover:text-foreground/50 transition-colors"
+          >
+            Docs
+          </a>
         </div>
         <div className="flex items-center gap-3">
           {/* Mobile hamburger trigger — visible only below md */}

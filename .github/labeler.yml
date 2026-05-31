@@ -3,24 +3,24 @@
 
 frontend:
   - changed-files:
-    - any-glob-to-any-file:
-      - '**/*.tsx'
-      - '**/*.ts'
-      - '**/*.jsx'
-      - '**/*.js'
-      - '**/*.css'
+      - any-glob-to-any-file:
+          - "**/*.tsx"
+          - "**/*.ts"
+          - "**/*.jsx"
+          - "**/*.js"
+          - "**/*.css"
 
 docs:
   - changed-files:
-    - any-glob-to-any-file:
-      - '**/*.md'
-      - 'docs/**/*'
+      - any-glob-to-any-file:
+          - "**/*.md"
+          - "docs/**/*"
 
 config:
   - changed-files:
-    - any-glob-to-any-file:
-      - 'package.json'
-      - 'package-lock.json'
-      - 'tsconfig.json'
-      - 'vite.config.ts'
-      - '.github/**/*'
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+          - "tsconfig.json"
+          - "vite.config.ts"
+          - ".github/**/*"

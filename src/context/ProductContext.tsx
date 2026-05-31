@@ -10,17 +10,9 @@ function resolveConfig(slug?: string): ProductConfig {
   return found ?? defaultProduct;
 }
 
-export function ProductProvider({
-  slug,
-  children,
-}: {
-  slug?: string;
-  children: ReactNode;
-}) {
+export function ProductProvider({ slug, children }: { slug?: string; children: ReactNode }) {
   const config = resolveConfig(slug);
-  return (
-    <ProductContext.Provider value={config}>{children}</ProductContext.Provider>
-  );
+  return <ProductContext.Provider value={config}>{children}</ProductContext.Provider>;
 }
 
 export function useProduct(): ProductConfig {

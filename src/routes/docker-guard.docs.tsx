@@ -10,7 +10,10 @@ export const Route = createFileRoute("/docker-guard/docs")({
   head: () => ({
     meta: [
       { title: "Docs — Docker Guard" },
-      { name: "description", content: "Documentation for Docker Guard, the real-time container security CLI." },
+      {
+        name: "description",
+        content: "Documentation for Docker Guard, the real-time container security CLI.",
+      },
     ],
   }),
 });

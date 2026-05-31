@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -51,12 +51,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      # You can replace this section with your actual UI testing framework 
+      # You can replace this section with your actual UI testing framework
       # (e.g., Playwright, Cypress, or Storybook tests).
       # If you're using Playwright, you would uncomment the following lines:
       # - name: Install Playwright Browsers

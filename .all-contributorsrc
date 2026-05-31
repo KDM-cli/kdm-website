@@ -1,7 +1,5 @@
 {
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "imageSize": 100,
   "commit": false,
   "commitType": "docs",
@@ -12,9 +10,7 @@
       "name": "Yuvraj Sarathe",
       "avatar_url": "https://avatars.githubusercontent.com/u/216678101?v=4",
       "profile": "https://yuvraj-sarathe.github.io/Portfolio/",
-      "contributions": [
-        "design"
-      ]
+      "contributions": ["design"]
     }
   ],
   "contributorsPerLine": 7,

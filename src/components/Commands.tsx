@@ -43,7 +43,7 @@ export const Commands = () => {
               </span>
             </div>
             <pre className="p-6 font-mono text-sm leading-relaxed text-foreground/90 overflow-x-auto whitespace-pre">
-{cmd.output}
+              {cmd.output}
             </pre>
           </div>
         </div>
