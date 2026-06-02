@@ -1,6 +1,6 @@
 <p align="center">
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<!-- [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-) -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="src/assets/logo.png">
@@ -206,6 +206,7 @@ Thanks to everyone who has contributed to this project:
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://yuvraj-sarathe.github.io/Portfolio/"><img src="https://avatars.githubusercontent.com/u/216678101?v=4?s=100" width="100px;" alt="Yuvraj Sarathe"/><br /><sub><b>Yuvraj Sarathe</b></sub></a><br /><a href="#design-Yuvraj-Sarathe" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/subhamdas29"><img src="https://avatars.githubusercontent.com/u/134172820?v=4?s=100" width="100px;" alt="Subham Das"/><br /><sub><b>Subham Das</b></sub></a><br /><a href="https://github.com/KDM-cli/kdm-website/commits?author=subhamdas29" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
