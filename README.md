@@ -195,11 +195,36 @@ We welcome contributions! Please read:
 
 ## Contributors
 
-<a href="https://github.com/KDM-cli/kdm-website/graphs/contributors">
-  <img alt="Project contributors" src="https://contrib.rocks/image?repo=KDM-cli/kdm-website" />
-</a>
+Thanks to everyone who has contributed to this project:
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://yuvraj-sarathe.github.io/Portfolio/"><img src="https://avatars.githubusercontent.com/u/216678101?v=4?s=100" width="100px;" alt="Yuvraj Sarathe"/><br /><sub><b>Yuvraj Sarathe</b></sub></a><br /><a href="#design-Yuvraj-Sarathe" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/subhamdas29"><img src="https://avatars.githubusercontent.com/u/134172820?v=4?s=100" width="100px;" alt="Subham Das"/><br /><sub><b>Subham Das</b></sub></a><br /><a href="https://github.com/KDM-cli/kdm-website/commits?author=subhamdas29" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
 
-Thanks to everyone who has contributed to this project🎊
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+<!-- <div align="center" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+  <a href="https://github.com/utkarsh232005" style="text-decoration: none; color: inherit;">
+    <img src="https://avatars.githubusercontent.com/u/137105846?v=4" width="64" height="64" alt="Utkarsh Patrikar" style="border-radius: 50%; display: block; margin: 0 auto;">
+    <strong>Utkarsh Patrikar</strong><br>
+    <span style="font-size: 0.85em;">Maintainer</span>
+  </a>
+  <a href="https://github.com/Yuvraj-Sarathe" style="text-decoration: none; color: inherit;">
+    <img src="https://avatars.githubusercontent.com/u/188508884?v=4" width="64" height="64" alt="Yuvraj Sarathe" style="border-radius: 50%; display: block; margin: 0 auto;">
+    <strong>Yuvraj Sarathe</strong><br>
+    <span style="font-size: 0.85em;">Contributor</span>
+  </a>
+</div> -->
 
 ---
 
