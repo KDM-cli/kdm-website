@@ -1,7 +1,4 @@
 <p align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="src/assets/logo.png">
     <img alt="KDM" src="src/assets/logo.png" width="128" height="128">
