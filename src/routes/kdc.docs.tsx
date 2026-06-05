@@ -12,8 +12,10 @@ export const Route = createFileRoute("/kdc/docs")({
   }),
 });
 
+const kdcDocsLoader = createDocsLoader("kdc");
+
 function KdcDocsLayout() {
-  const loader = createDocsLoader("kdc");
+  const loader = kdcDocsLoader;
 
   return (
     <div className="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-12">

@@ -47,7 +47,7 @@ function parseModules(modules: Record<string, string>): Doc[] {
       const { data, body } = parseFrontmatter(raw);
       return {
         slug,
-        title: data.title ?? slug ?? "Untitled",
+        title: (data.title ?? slug) || "Untitled",
         description: data.description,
         eyebrow: data.eyebrow,
         order: data.order ? Number(data.order) : 999,
@@ -60,7 +60,10 @@ function parseModules(modules: Record<string, string>): Doc[] {
 const kdmDocs = parseModules(kdmModules);
 const kdcDocs = parseModules(kdcModules);
 
-export function createDocsLoader(productSlug: string) {
+export function createDocsLoader(productSlug: "kdm" | "kdc") {
+  if (productSlug !== "kdm" && productSlug !== "kdc") {
+    throw new Error(`Invalid productSlug: ${productSlug}`);
+  }
   const docs = productSlug === "kdm" ? kdmDocs : kdcDocs;
   const allDocs: Doc[] = docs;
   const docList: DocMeta[] = docs.map(({ html: _h, ...meta }) => meta);

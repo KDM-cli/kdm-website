@@ -7,9 +7,32 @@ export const Hero = () => {
   const { displayName, tagline, description, installCommand, githubUrl, stats, terminalLines } = useProduct();
   const [copied, setCopied] = useState(false);
   const copy = () => {
-    navigator.clipboard.writeText(installCommand);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    navigator.clipboard.writeText(installCommand)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
+      })
+      .catch((err) => {
+        console.error("Failed to copy text using clipboard API: ", err);
+        try {
+          const textarea = document.createElement("textarea");
+          textarea.value = installCommand;
+          textarea.style.position = "fixed";
+          document.body.appendChild(textarea);
+          textarea.focus();
+          textarea.select();
+          const successful = document.execCommand("copy");
+          document.body.removeChild(textarea);
+          if (successful) {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+          } else {
+            console.error("execCommand copy fallback failed");
+          }
+        } catch (fallbackErr) {
+          console.error("Copy fallback execution failed: ", fallbackErr);
+        }
+      });
   };
 
   return (

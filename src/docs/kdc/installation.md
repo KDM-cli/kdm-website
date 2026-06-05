@@ -100,11 +100,4 @@ sha256sum --check --ignore-missing sha256sums.txt
 
 ## Build From Source
 
-Requires the stable Rust toolchain.
-
-```bash
-git clone https://github.com/KDM-cli/kdc-cli.git
-cd kdc-cli
-cargo build --release
-sudo mv target/release/kdc /usr/local/bin/
-```
+For instructions on building from source, please refer to the [Development](development) guide.

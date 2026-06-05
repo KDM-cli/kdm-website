@@ -13,9 +13,9 @@ KDC scans a project, understands which DevOps files are present, checks whether 
 
 For example:
 
-- If the project has a `Dockerfile`, KDC enables Docker actions.
-- If the project has `docker-compose.yml`, KDC enables Compose actions.
-- If the project has Kubernetes manifests, KDC enables Kubernetes and deployment actions.
+- Presence of a `Dockerfile` enables Docker actions.
+- A `docker-compose.yml` enables Compose actions.
+- Kubernetes manifests enable Kubernetes and deployment actions.
 - If Docker is installed but not running, KDC reports that state and disables runtime-dependent actions where needed.
 
 ## Why We Use KDC

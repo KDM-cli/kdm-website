@@ -24,7 +24,7 @@ export const Footer = () => {
               Terms
             </Link>
             <a
-              href="https://github.com/KDM-cli/kdm-cli"
+              href={product ? `${product.githubUrl}/actions` : "https://github.com/KDM-cli/kdm-cli/actions"}
               target="_blank"
               rel="noreferrer"
               className="hover:text-foreground/40 transition-colors"
