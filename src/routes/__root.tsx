@@ -10,9 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { ProductProvider } from "@/context/ProductContext";
-import hubLogo from "@/assets/logo-hub.png";
-import kdmLogo from "@/assets/logo-kdm.png";
-import placeholderLogo from "@/assets/logo-placeholder.png";
+import logoUrl from "@/assets/logo.png";
 
 function NotFoundComponent() {
   return (
@@ -72,15 +70,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: (ctx) => {
-    const pathname = (ctx as any)?.location?.pathname || "";
-    let favicon = hubLogo;
-    if (pathname.startsWith("/kdm")) {
-      favicon = kdmLogo;
-    } else if (pathname.startsWith("/placeholder")) {
-      favicon = placeholderLogo;
-    }
-
+  head: () => {
     return {
       meta: [
         { charSet: "utf-8" },
@@ -100,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         {
           rel: "icon",
           type: "image/png",
-          href: favicon,
+          href: logoUrl,
         },
       ],
     };
