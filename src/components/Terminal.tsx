@@ -1,33 +1,27 @@
 import { useEffect, useState } from "react";
+import { TerminalLine } from "@/config/products/types";
 
-const lines: { prompt?: string; text: string; out?: boolean; blink?: boolean }[] = [
-  { prompt: "$", text: "kdm show pods" },
-  { text: "NAME                    READY   STATUS    CPU    MEM", out: true },
-  { text: "api-server-7d4f8b       1/1     Running   12%    248Mi", out: true },
-  { text: "worker-queue-2c9a1      1/1     Running   34%    512Mi", out: true },
-  { text: "redis-cache-0           1/1     Running   3%     64Mi", out: true },
-  { prompt: "$", text: "kdm health containers" },
-  { text: "[ok]   nginx-proxy        healthy   uptime 14d", out: true },
-  { text: "[ok]   postgres-main      healthy   uptime 28d", out: true },
-  { text: "[warn] log-shipper        degraded  restarts: 3", out: true },
-  { prompt: "$", text: "kdm watch", blink: true },
-];
+export interface TerminalProps {
+  lines: TerminalLine[];
+  productName: string;
+}
 
-export const Terminal = () => {
+export const Terminal = ({ lines, productName }: TerminalProps) => {
   const [visible, setVisible] = useState(0);
 
   useEffect(() => {
+    setVisible(0);
     const timers = lines.map((_, i) =>
       setTimeout(() => setVisible((v) => Math.max(v, i + 1)), 300 + i * 280)
     );
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [lines]);
 
   return (
     <div className="border border-border bg-[rgba(255,255,255,0.03)]">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border">
         <span className="font-mono text-xs uppercase tracking-[1px] text-foreground/50">
-          ~/cluster — kdm
+          ~/cluster — {productName}
         </span>
       </div>
       <div className="p-5 font-mono text-sm leading-relaxed min-h-[240px] md:min-h-[360px]">

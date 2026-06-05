@@ -9,7 +9,10 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import logoUrl from "@/assets/logo.png";
+import { ProductProvider } from "@/context/ProductContext";
+import hubLogo from "@/assets/logo-hub.png";
+import kdmLogo from "@/assets/logo-kdm.png";
+import placeholderLogo from "@/assets/logo-placeholder.png";
 
 function NotFoundComponent() {
   return (
@@ -69,27 +72,39 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-    ],
-    links: [
-      { rel: "icon", type: "image/png", href: logoUrl },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
+  head: (ctx) => {
+    const pathname = (ctx as any)?.location?.pathname || "";
+    let favicon = hubLogo;
+    if (pathname.startsWith("/kdm")) {
+      favicon = kdmLogo;
+    } else if (pathname.startsWith("/placeholder")) {
+      favicon = placeholderLogo;
+    }
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "Antigravity Labs" },
+        { name: "description", content: "High-performance developer suites" },
+        { name: "author", content: "Antigravity Labs" },
+        { property: "og:title", content: "Antigravity Labs" },
+        { property: "og:description", content: "High-performance developer suites" },
+        { property: "og:type", content: "website" },
+      ],
+      links: [
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          href: favicon,
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -115,7 +130,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <ProductProvider slug="kdm">
+        <Outlet />
+      </ProductProvider>
     </QueryClientProvider>
   );
 }

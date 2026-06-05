@@ -11,10 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as DocsRouteImport } from './routes/docs'
+import { Route as PlaceholderRouteImport } from './routes/placeholder'
+import { Route as KdmRouteImport } from './routes/kdm'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DocsIndexRouteImport } from './routes/docs.index'
-import { Route as DocsSlugRouteImport } from './routes/docs.$slug'
+import { Route as PlaceholderIndexRouteImport } from './routes/placeholder.index'
+import { Route as KdmIndexRouteImport } from './routes/kdm.index'
+import { Route as PlaceholderDocsRouteImport } from './routes/placeholder.docs'
+import { Route as KdmDocsRouteImport } from './routes/kdm.docs'
+import { Route as PlaceholderDocsIndexRouteImport } from './routes/placeholder.docs.index'
+import { Route as KdmDocsIndexRouteImport } from './routes/kdm.docs.index'
+import { Route as PlaceholderDocsSlugRouteImport } from './routes/placeholder.docs.$slug'
+import { Route as KdmDocsSlugRouteImport } from './routes/kdm.docs.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -26,9 +33,14 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocsRoute = DocsRouteImport.update({
-  id: '/docs',
-  path: '/docs',
+const PlaceholderRoute = PlaceholderRouteImport.update({
+  id: '/placeholder',
+  path: '/placeholder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KdmRoute = KdmRouteImport.update({
+  id: '/kdm',
+  path: '/kdm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -36,59 +48,137 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocsIndexRoute = DocsIndexRouteImport.update({
+const PlaceholderIndexRoute = PlaceholderIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => DocsRoute,
+  getParentRoute: () => PlaceholderRoute,
 } as any)
-const DocsSlugRoute = DocsSlugRouteImport.update({
+const KdmIndexRoute = KdmIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KdmRoute,
+} as any)
+const PlaceholderDocsRoute = PlaceholderDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => PlaceholderRoute,
+} as any)
+const KdmDocsRoute = KdmDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => KdmRoute,
+} as any)
+const PlaceholderDocsIndexRoute = PlaceholderDocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PlaceholderDocsRoute,
+} as any)
+const KdmDocsIndexRoute = KdmDocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KdmDocsRoute,
+} as any)
+const PlaceholderDocsSlugRoute = PlaceholderDocsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => DocsRoute,
+  getParentRoute: () => PlaceholderDocsRoute,
+} as any)
+const KdmDocsSlugRoute = KdmDocsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => KdmDocsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/docs': typeof DocsRouteWithChildren
+  '/kdm': typeof KdmRouteWithChildren
+  '/placeholder': typeof PlaceholderRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs/': typeof DocsIndexRoute
+  '/kdm/docs': typeof KdmDocsRouteWithChildren
+  '/placeholder/docs': typeof PlaceholderDocsRouteWithChildren
+  '/kdm/': typeof KdmIndexRoute
+  '/placeholder/': typeof PlaceholderIndexRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/placeholder/docs/$slug': typeof PlaceholderDocsSlugRoute
+  '/kdm/docs/': typeof KdmDocsIndexRoute
+  '/placeholder/docs/': typeof PlaceholderDocsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs': typeof DocsIndexRoute
+  '/kdm': typeof KdmIndexRoute
+  '/placeholder': typeof PlaceholderIndexRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/placeholder/docs/$slug': typeof PlaceholderDocsSlugRoute
+  '/kdm/docs': typeof KdmDocsIndexRoute
+  '/placeholder/docs': typeof PlaceholderDocsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/docs': typeof DocsRouteWithChildren
+  '/kdm': typeof KdmRouteWithChildren
+  '/placeholder': typeof PlaceholderRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs/': typeof DocsIndexRoute
+  '/kdm/docs': typeof KdmDocsRouteWithChildren
+  '/placeholder/docs': typeof PlaceholderDocsRouteWithChildren
+  '/kdm/': typeof KdmIndexRoute
+  '/placeholder/': typeof PlaceholderIndexRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/placeholder/docs/$slug': typeof PlaceholderDocsSlugRoute
+  '/kdm/docs/': typeof KdmDocsIndexRoute
+  '/placeholder/docs/': typeof PlaceholderDocsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/docs' | '/privacy' | '/terms' | '/docs/$slug' | '/docs/'
+  fullPaths:
+    | '/'
+    | '/kdm'
+    | '/placeholder'
+    | '/privacy'
+    | '/terms'
+    | '/kdm/docs'
+    | '/placeholder/docs'
+    | '/kdm/'
+    | '/placeholder/'
+    | '/kdm/docs/$slug'
+    | '/placeholder/docs/$slug'
+    | '/kdm/docs/'
+    | '/placeholder/docs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy' | '/terms' | '/docs/$slug' | '/docs'
+  to:
+    | '/'
+    | '/privacy'
+    | '/terms'
+    | '/kdm'
+    | '/placeholder'
+    | '/kdm/docs/$slug'
+    | '/placeholder/docs/$slug'
+    | '/kdm/docs'
+    | '/placeholder/docs'
   id:
     | '__root__'
     | '/'
-    | '/docs'
+    | '/kdm'
+    | '/placeholder'
     | '/privacy'
     | '/terms'
-    | '/docs/$slug'
-    | '/docs/'
+    | '/kdm/docs'
+    | '/placeholder/docs'
+    | '/kdm/'
+    | '/placeholder/'
+    | '/kdm/docs/$slug'
+    | '/placeholder/docs/$slug'
+    | '/kdm/docs/'
+    | '/placeholder/docs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DocsRoute: typeof DocsRouteWithChildren
+  KdmRoute: typeof KdmRouteWithChildren
+  PlaceholderRoute: typeof PlaceholderRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
 }
@@ -109,11 +199,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs': {
-      id: '/docs'
-      path: '/docs'
-      fullPath: '/docs'
-      preLoaderRoute: typeof DocsRouteImport
+    '/placeholder': {
+      id: '/placeholder'
+      path: '/placeholder'
+      fullPath: '/placeholder'
+      preLoaderRoute: typeof PlaceholderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kdm': {
+      id: '/kdm'
+      path: '/kdm'
+      fullPath: '/kdm'
+      preLoaderRoute: typeof KdmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -123,38 +220,122 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs/': {
-      id: '/docs/'
+    '/placeholder/': {
+      id: '/placeholder/'
       path: '/'
-      fullPath: '/docs/'
-      preLoaderRoute: typeof DocsIndexRouteImport
-      parentRoute: typeof DocsRoute
+      fullPath: '/placeholder/'
+      preLoaderRoute: typeof PlaceholderIndexRouteImport
+      parentRoute: typeof PlaceholderRoute
     }
-    '/docs/$slug': {
-      id: '/docs/$slug'
+    '/kdm/': {
+      id: '/kdm/'
+      path: '/'
+      fullPath: '/kdm/'
+      preLoaderRoute: typeof KdmIndexRouteImport
+      parentRoute: typeof KdmRoute
+    }
+    '/placeholder/docs': {
+      id: '/placeholder/docs'
+      path: '/docs'
+      fullPath: '/placeholder/docs'
+      preLoaderRoute: typeof PlaceholderDocsRouteImport
+      parentRoute: typeof PlaceholderRoute
+    }
+    '/kdm/docs': {
+      id: '/kdm/docs'
+      path: '/docs'
+      fullPath: '/kdm/docs'
+      preLoaderRoute: typeof KdmDocsRouteImport
+      parentRoute: typeof KdmRoute
+    }
+    '/placeholder/docs/': {
+      id: '/placeholder/docs/'
+      path: '/'
+      fullPath: '/placeholder/docs/'
+      preLoaderRoute: typeof PlaceholderDocsIndexRouteImport
+      parentRoute: typeof PlaceholderDocsRoute
+    }
+    '/kdm/docs/': {
+      id: '/kdm/docs/'
+      path: '/'
+      fullPath: '/kdm/docs/'
+      preLoaderRoute: typeof KdmDocsIndexRouteImport
+      parentRoute: typeof KdmDocsRoute
+    }
+    '/placeholder/docs/$slug': {
+      id: '/placeholder/docs/$slug'
       path: '/$slug'
-      fullPath: '/docs/$slug'
-      preLoaderRoute: typeof DocsSlugRouteImport
-      parentRoute: typeof DocsRoute
+      fullPath: '/placeholder/docs/$slug'
+      preLoaderRoute: typeof PlaceholderDocsSlugRouteImport
+      parentRoute: typeof PlaceholderDocsRoute
+    }
+    '/kdm/docs/$slug': {
+      id: '/kdm/docs/$slug'
+      path: '/$slug'
+      fullPath: '/kdm/docs/$slug'
+      preLoaderRoute: typeof KdmDocsSlugRouteImport
+      parentRoute: typeof KdmDocsRoute
     }
   }
 }
 
-interface DocsRouteChildren {
-  DocsSlugRoute: typeof DocsSlugRoute
-  DocsIndexRoute: typeof DocsIndexRoute
+interface KdmDocsRouteChildren {
+  KdmDocsSlugRoute: typeof KdmDocsSlugRoute
+  KdmDocsIndexRoute: typeof KdmDocsIndexRoute
 }
 
-const DocsRouteChildren: DocsRouteChildren = {
-  DocsSlugRoute: DocsSlugRoute,
-  DocsIndexRoute: DocsIndexRoute,
+const KdmDocsRouteChildren: KdmDocsRouteChildren = {
+  KdmDocsSlugRoute: KdmDocsSlugRoute,
+  KdmDocsIndexRoute: KdmDocsIndexRoute,
 }
 
-const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
+const KdmDocsRouteWithChildren =
+  KdmDocsRoute._addFileChildren(KdmDocsRouteChildren)
+
+interface KdmRouteChildren {
+  KdmDocsRoute: typeof KdmDocsRouteWithChildren
+  KdmIndexRoute: typeof KdmIndexRoute
+}
+
+const KdmRouteChildren: KdmRouteChildren = {
+  KdmDocsRoute: KdmDocsRouteWithChildren,
+  KdmIndexRoute: KdmIndexRoute,
+}
+
+const KdmRouteWithChildren = KdmRoute._addFileChildren(KdmRouteChildren)
+
+interface PlaceholderDocsRouteChildren {
+  PlaceholderDocsSlugRoute: typeof PlaceholderDocsSlugRoute
+  PlaceholderDocsIndexRoute: typeof PlaceholderDocsIndexRoute
+}
+
+const PlaceholderDocsRouteChildren: PlaceholderDocsRouteChildren = {
+  PlaceholderDocsSlugRoute: PlaceholderDocsSlugRoute,
+  PlaceholderDocsIndexRoute: PlaceholderDocsIndexRoute,
+}
+
+const PlaceholderDocsRouteWithChildren = PlaceholderDocsRoute._addFileChildren(
+  PlaceholderDocsRouteChildren,
+)
+
+interface PlaceholderRouteChildren {
+  PlaceholderDocsRoute: typeof PlaceholderDocsRouteWithChildren
+  PlaceholderIndexRoute: typeof PlaceholderIndexRoute
+}
+
+const PlaceholderRouteChildren: PlaceholderRouteChildren = {
+  PlaceholderDocsRoute: PlaceholderDocsRouteWithChildren,
+  PlaceholderIndexRoute: PlaceholderIndexRoute,
+}
+
+const PlaceholderRouteWithChildren = PlaceholderRoute._addFileChildren(
+  PlaceholderRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DocsRoute: DocsRouteWithChildren,
+  KdmRoute: KdmRouteWithChildren,
+  PlaceholderRoute: PlaceholderRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
 }
