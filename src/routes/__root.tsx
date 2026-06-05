@@ -75,10 +75,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { title: "Antigravity Labs" },
+        { title: "KDM Labs" },
         { name: "description", content: "High-performance developer suites" },
-        { name: "author", content: "Antigravity Labs" },
-        { property: "og:title", content: "Antigravity Labs" },
+        { name: "author", content: "KDM Labs" },
+        { property: "og:title", content: "KDM Labs" },
         { property: "og:description", content: "High-performance developer suites" },
         { property: "og:type", content: "website" },
       ],

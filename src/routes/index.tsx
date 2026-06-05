@@ -9,12 +9,12 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Antigravity Labs — Developer Console Suites" },
+      { title: "KDM Labs — Developer Console Suites" },
       {
         name: "description",
         content: "High-performance developer utilities for cluster monitoring, log routing, and real-time terminal diagnostics.",
       },
-      { property: "og:title", content: "Antigravity Labs — Developer Console Suites" },
+      { property: "og:title", content: "KDM Labs — Developer Console Suites" },
       {
         property: "og:description",
         content: "High-performance developer utilities for cluster monitoring, log routing, and real-time terminal diagnostics.",
@@ -35,7 +35,7 @@ function Index() {
         <div className="max-w-3xl mb-20">
           <p className="font-mono text-xs uppercase tracking-[2px] text-foreground/50 mb-4">// developer terminal tools</p>
           <h1 className="text-5xl lg:text-7xl font-mono font-light tracking-tight mb-6 leading-tight">
-            Antigravity <span className="font-bold">Labs.</span>
+            KDM <span className="font-bold">Labs.</span>
           </h1>
           <p className="text-lg text-foreground/70 leading-relaxed max-w-2xl">
             A suite of lightweight, high-performance command-line applications designed to replace bulky graphical dashboards with direct terminal-driven streams.

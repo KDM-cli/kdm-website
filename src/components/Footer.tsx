@@ -10,10 +10,10 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <span className="font-mono text-sm uppercase tracking-[1.4px]">
-              {product ? product.displayName : "Antigravity Labs"}
+              {product ? product.displayName : "KDM Labs"}
             </span>
             <span className="text-xs text-foreground/50">
-              © 2026 {product ? `${product.displayName} Labs` : "Antigravity Labs"}
+              © 2026 {product ? `${product.displayName} Labs` : "KDM Labs"}
             </span>
           </div>
           <div className="flex gap-6 font-mono text-xs uppercase tracking-[1px] text-foreground/70">
