@@ -11,10 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as DocsRouteImport } from './routes/docs'
+import { Route as KdmRouteImport } from './routes/kdm'
+import { Route as KdcRouteImport } from './routes/kdc'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DocsIndexRouteImport } from './routes/docs.index'
-import { Route as DocsSlugRouteImport } from './routes/docs.$slug'
+import { Route as KdmIndexRouteImport } from './routes/kdm.index'
+import { Route as KdcIndexRouteImport } from './routes/kdc.index'
+import { Route as KdmDocsRouteImport } from './routes/kdm.docs'
+import { Route as KdcDocsRouteImport } from './routes/kdc.docs'
+import { Route as KdmDocsIndexRouteImport } from './routes/kdm.docs.index'
+import { Route as KdcDocsIndexRouteImport } from './routes/kdc.docs.index'
+import { Route as KdmDocsSlugRouteImport } from './routes/kdm.docs.$slug'
+import { Route as KdcDocsSlugRouteImport } from './routes/kdc.docs.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -26,9 +33,14 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocsRoute = DocsRouteImport.update({
-  id: '/docs',
-  path: '/docs',
+const KdmRoute = KdmRouteImport.update({
+  id: '/kdm',
+  path: '/kdm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KdcRoute = KdcRouteImport.update({
+  id: '/kdc',
+  path: '/kdc',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -36,59 +48,137 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocsIndexRoute = DocsIndexRouteImport.update({
+const KdmIndexRoute = KdmIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => DocsRoute,
+  getParentRoute: () => KdmRoute,
 } as any)
-const DocsSlugRoute = DocsSlugRouteImport.update({
+const KdcIndexRoute = KdcIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KdcRoute,
+} as any)
+const KdmDocsRoute = KdmDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => KdmRoute,
+} as any)
+const KdcDocsRoute = KdcDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => KdcRoute,
+} as any)
+const KdmDocsIndexRoute = KdmDocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KdmDocsRoute,
+} as any)
+const KdcDocsIndexRoute = KdcDocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KdcDocsRoute,
+} as any)
+const KdmDocsSlugRoute = KdmDocsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => DocsRoute,
+  getParentRoute: () => KdmDocsRoute,
+} as any)
+const KdcDocsSlugRoute = KdcDocsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => KdcDocsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/docs': typeof DocsRouteWithChildren
+  '/kdc': typeof KdcRouteWithChildren
+  '/kdm': typeof KdmRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs/': typeof DocsIndexRoute
+  '/kdc/docs': typeof KdcDocsRouteWithChildren
+  '/kdm/docs': typeof KdmDocsRouteWithChildren
+  '/kdc/': typeof KdcIndexRoute
+  '/kdm/': typeof KdmIndexRoute
+  '/kdc/docs/$slug': typeof KdcDocsSlugRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/kdc/docs/': typeof KdcDocsIndexRoute
+  '/kdm/docs/': typeof KdmDocsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs': typeof DocsIndexRoute
+  '/kdc': typeof KdcIndexRoute
+  '/kdm': typeof KdmIndexRoute
+  '/kdc/docs/$slug': typeof KdcDocsSlugRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/kdc/docs': typeof KdcDocsIndexRoute
+  '/kdm/docs': typeof KdmDocsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/docs': typeof DocsRouteWithChildren
+  '/kdc': typeof KdcRouteWithChildren
+  '/kdm': typeof KdmRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/docs/$slug': typeof DocsSlugRoute
-  '/docs/': typeof DocsIndexRoute
+  '/kdc/docs': typeof KdcDocsRouteWithChildren
+  '/kdm/docs': typeof KdmDocsRouteWithChildren
+  '/kdc/': typeof KdcIndexRoute
+  '/kdm/': typeof KdmIndexRoute
+  '/kdc/docs/$slug': typeof KdcDocsSlugRoute
+  '/kdm/docs/$slug': typeof KdmDocsSlugRoute
+  '/kdc/docs/': typeof KdcDocsIndexRoute
+  '/kdm/docs/': typeof KdmDocsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/docs' | '/privacy' | '/terms' | '/docs/$slug' | '/docs/'
+  fullPaths:
+    | '/'
+    | '/kdc'
+    | '/kdm'
+    | '/privacy'
+    | '/terms'
+    | '/kdc/docs'
+    | '/kdm/docs'
+    | '/kdc/'
+    | '/kdm/'
+    | '/kdc/docs/$slug'
+    | '/kdm/docs/$slug'
+    | '/kdc/docs/'
+    | '/kdm/docs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy' | '/terms' | '/docs/$slug' | '/docs'
+  to:
+    | '/'
+    | '/privacy'
+    | '/terms'
+    | '/kdc'
+    | '/kdm'
+    | '/kdc/docs/$slug'
+    | '/kdm/docs/$slug'
+    | '/kdc/docs'
+    | '/kdm/docs'
   id:
     | '__root__'
     | '/'
-    | '/docs'
+    | '/kdc'
+    | '/kdm'
     | '/privacy'
     | '/terms'
-    | '/docs/$slug'
-    | '/docs/'
+    | '/kdc/docs'
+    | '/kdm/docs'
+    | '/kdc/'
+    | '/kdm/'
+    | '/kdc/docs/$slug'
+    | '/kdm/docs/$slug'
+    | '/kdc/docs/'
+    | '/kdm/docs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DocsRoute: typeof DocsRouteWithChildren
+  KdcRoute: typeof KdcRouteWithChildren
+  KdmRoute: typeof KdmRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
 }
@@ -109,11 +199,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs': {
-      id: '/docs'
-      path: '/docs'
-      fullPath: '/docs'
-      preLoaderRoute: typeof DocsRouteImport
+    '/kdm': {
+      id: '/kdm'
+      path: '/kdm'
+      fullPath: '/kdm'
+      preLoaderRoute: typeof KdmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kdc': {
+      id: '/kdc'
+      path: '/kdc'
+      fullPath: '/kdc'
+      preLoaderRoute: typeof KdcRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -123,38 +220,119 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs/': {
-      id: '/docs/'
+    '/kdm/': {
+      id: '/kdm/'
       path: '/'
-      fullPath: '/docs/'
-      preLoaderRoute: typeof DocsIndexRouteImport
-      parentRoute: typeof DocsRoute
+      fullPath: '/kdm/'
+      preLoaderRoute: typeof KdmIndexRouteImport
+      parentRoute: typeof KdmRoute
     }
-    '/docs/$slug': {
-      id: '/docs/$slug'
+    '/kdc/': {
+      id: '/kdc/'
+      path: '/'
+      fullPath: '/kdc/'
+      preLoaderRoute: typeof KdcIndexRouteImport
+      parentRoute: typeof KdcRoute
+    }
+    '/kdm/docs': {
+      id: '/kdm/docs'
+      path: '/docs'
+      fullPath: '/kdm/docs'
+      preLoaderRoute: typeof KdmDocsRouteImport
+      parentRoute: typeof KdmRoute
+    }
+    '/kdc/docs': {
+      id: '/kdc/docs'
+      path: '/docs'
+      fullPath: '/kdc/docs'
+      preLoaderRoute: typeof KdcDocsRouteImport
+      parentRoute: typeof KdcRoute
+    }
+    '/kdm/docs/': {
+      id: '/kdm/docs/'
+      path: '/'
+      fullPath: '/kdm/docs/'
+      preLoaderRoute: typeof KdmDocsIndexRouteImport
+      parentRoute: typeof KdmDocsRoute
+    }
+    '/kdc/docs/': {
+      id: '/kdc/docs/'
+      path: '/'
+      fullPath: '/kdc/docs/'
+      preLoaderRoute: typeof KdcDocsIndexRouteImport
+      parentRoute: typeof KdcDocsRoute
+    }
+    '/kdm/docs/$slug': {
+      id: '/kdm/docs/$slug'
       path: '/$slug'
-      fullPath: '/docs/$slug'
-      preLoaderRoute: typeof DocsSlugRouteImport
-      parentRoute: typeof DocsRoute
+      fullPath: '/kdm/docs/$slug'
+      preLoaderRoute: typeof KdmDocsSlugRouteImport
+      parentRoute: typeof KdmDocsRoute
+    }
+    '/kdc/docs/$slug': {
+      id: '/kdc/docs/$slug'
+      path: '/$slug'
+      fullPath: '/kdc/docs/$slug'
+      preLoaderRoute: typeof KdcDocsSlugRouteImport
+      parentRoute: typeof KdcDocsRoute
     }
   }
 }
 
-interface DocsRouteChildren {
-  DocsSlugRoute: typeof DocsSlugRoute
-  DocsIndexRoute: typeof DocsIndexRoute
+interface KdcDocsRouteChildren {
+  KdcDocsSlugRoute: typeof KdcDocsSlugRoute
+  KdcDocsIndexRoute: typeof KdcDocsIndexRoute
 }
 
-const DocsRouteChildren: DocsRouteChildren = {
-  DocsSlugRoute: DocsSlugRoute,
-  DocsIndexRoute: DocsIndexRoute,
+const KdcDocsRouteChildren: KdcDocsRouteChildren = {
+  KdcDocsSlugRoute: KdcDocsSlugRoute,
+  KdcDocsIndexRoute: KdcDocsIndexRoute,
 }
 
-const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
+const KdcDocsRouteWithChildren =
+  KdcDocsRoute._addFileChildren(KdcDocsRouteChildren)
+
+interface KdcRouteChildren {
+  KdcDocsRoute: typeof KdcDocsRouteWithChildren
+  KdcIndexRoute: typeof KdcIndexRoute
+}
+
+const KdcRouteChildren: KdcRouteChildren = {
+  KdcDocsRoute: KdcDocsRouteWithChildren,
+  KdcIndexRoute: KdcIndexRoute,
+}
+
+const KdcRouteWithChildren = KdcRoute._addFileChildren(KdcRouteChildren)
+
+interface KdmDocsRouteChildren {
+  KdmDocsSlugRoute: typeof KdmDocsSlugRoute
+  KdmDocsIndexRoute: typeof KdmDocsIndexRoute
+}
+
+const KdmDocsRouteChildren: KdmDocsRouteChildren = {
+  KdmDocsSlugRoute: KdmDocsSlugRoute,
+  KdmDocsIndexRoute: KdmDocsIndexRoute,
+}
+
+const KdmDocsRouteWithChildren =
+  KdmDocsRoute._addFileChildren(KdmDocsRouteChildren)
+
+interface KdmRouteChildren {
+  KdmDocsRoute: typeof KdmDocsRouteWithChildren
+  KdmIndexRoute: typeof KdmIndexRoute
+}
+
+const KdmRouteChildren: KdmRouteChildren = {
+  KdmDocsRoute: KdmDocsRouteWithChildren,
+  KdmIndexRoute: KdmIndexRoute,
+}
+
+const KdmRouteWithChildren = KdmRoute._addFileChildren(KdmRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DocsRoute: DocsRouteWithChildren,
+  KdcRoute: KdcRouteWithChildren,
+  KdmRoute: KdmRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
 }

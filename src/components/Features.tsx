@@ -1,45 +1,11 @@
-import { Eye, HeartPulse, Radio, ScrollText, Cloud, Shield } from "lucide-react";
+import { Feature } from "@/config/products/types";
 
-const features = [
-  {
-    icon: Eye,
-    title: "Unified visibility",
-    desc: "Show running pods, containers, runners, and Minikube nodes — across clouds — in a single command.",
-    cmd: "kdm show <target>",
-  },
-  {
-    icon: HeartPulse,
-    title: "Health diagnostics",
-    desc: "Probe liveness, readiness, restarts, and resource pressure with intelligent severity scoring.",
-    cmd: "kdm health <target>",
-  },
-  {
-    icon: Radio,
-    title: "Live watch mode",
-    desc: "Stream metrics in real time with millisecond updates. Pin services, filter noise, alert on drift.",
-    cmd: "kdm watch",
-  },
-  {
-    icon: ScrollText,
-    title: "Smart log tailing",
-    desc: "Tail container or pod logs with structured parsing, multi-line stitching, and instant search.",
-    cmd: "kdm logs <name>",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud-synced state",
-    desc: "Securely sync cluster state across your team. Share dashboards, runbooks, and incident timelines.",
-    cmd: "cloud · auto",
-  },
-  {
-    icon: Shield,
-    title: "Zero-trust by default",
-    desc: "Read-only kubeconfig context, scoped tokens, and end-to-end encrypted streams. SOC 2 ready.",
-    cmd: "built-in",
-  },
-];
+export interface FeaturesProps {
+  features: Feature[];
+  productName: string;
+}
 
-export const Features = () => {
+export const Features = ({ features, productName }: FeaturesProps) => {
   return (
     <section id="features" className="py-24 lg:py-32 border-b border-border">
       <div className="container mx-auto px-6">
@@ -51,7 +17,7 @@ export const Features = () => {
             One CLI for the entire stack.
           </h2>
           <p className="text-base text-foreground/70">
-            From local Minikube clusters to multi-region production, KDM gives you the same crisp
+            From local Minikube clusters to multi-region production, {productName.toUpperCase()} gives you the same crisp
             experience whether you're debugging on a laptop or paging at 3 AM.
           </p>
         </div>
