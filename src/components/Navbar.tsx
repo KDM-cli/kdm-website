@@ -19,6 +19,89 @@ interface ProductNavbarProps {
   product: ProductConfig;
 }
 
+interface ProductMobileMenuProps {
+  product: ProductConfig;
+  isKdm: boolean;
+}
+
+const ProductMobileMenu = ({ product, isKdm }: ProductMobileMenuProps) => {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <button
+          className="md:hidden p-2 text-foreground hover:text-foreground/50 transition-colors cursor-pointer"
+          aria-label="Open navigation menu"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+        <nav className="flex flex-col gap-6 mt-12">
+          <div className="flex flex-col gap-3">
+            <span className="font-mono text-xs uppercase tracking-[1px] text-foreground/50">Products</span>
+            <SheetClose asChild>
+              <Link
+                to="/kdm"
+                className="flex items-center justify-between gap-4 px-3 py-2 font-mono text-[10px] uppercase tracking-[1.4px] text-foreground hover:bg-[rgba(255,255,255,0.05)] cursor-pointer"
+              >
+                KDM Monitor
+                {isKdm && <span className="h-1.5 w-1.5 bg-foreground rounded-full" />}
+              </Link>
+            </SheetClose>
+            <SheetClose asChild>
+              <Link
+                to="/kdc"
+                className="flex items-center justify-between gap-4 px-3 py-2 font-mono text-[10px] uppercase tracking-[1.4px] text-foreground hover:bg-[rgba(255,255,255,0.05)] cursor-pointer"
+              >
+                KDC Commander
+                {!isKdm && <span className="h-1.5 w-1.5 bg-foreground rounded-full" />}
+              </Link>
+            </SheetClose>
+          </div>
+
+          <SheetClose asChild>
+            <a
+              href="#features"
+              className="font-mono text-sm uppercase tracking-[1.4px] text-foreground hover:text-foreground/50 transition-colors"
+            >
+              Features
+            </a>
+          </SheetClose>
+          <SheetClose asChild>
+            <a
+              href="#commands"
+              className="font-mono text-sm uppercase tracking-[1.4px] text-foreground hover:text-foreground/50 transition-colors"
+            >
+              Commands
+            </a>
+          </SheetClose>
+          <SheetClose asChild>
+            <Link
+              to={`/${product.slug}/docs`}
+              className="font-mono text-sm uppercase tracking-[1.4px] text-foreground hover:text-foreground/50 transition-colors"
+            >
+              Docs
+            </Link>
+          </SheetClose>
+          <div className="pt-4 border-t border-border">
+            <SheetClose asChild>
+              <a
+                href={product.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-mono px-4 py-2 inline-flex items-center gap-2 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              >
+                <Star className="h-4 w-4" />
+                Star us
+              </a>
+            </SheetClose>
+          </div>
+        </nav>
+      </SheetContent>
+    </Sheet>
+  );
+};
+
 const ProductNavbar = ({ product }: ProductNavbarProps) => {
   const isKdm = product.slug === "kdm";
 
@@ -65,80 +148,7 @@ const ProductNavbar = ({ product }: ProductNavbarProps) => {
         </div>
 
         <div className="flex items-center gap-3">
-          {/* Mobile hamburger trigger — visible only below md */}
-          <Sheet>
-            <SheetTrigger asChild>
-              <button
-                className="md:hidden p-2 text-foreground hover:text-foreground/50 transition-colors cursor-pointer"
-                aria-label="Open navigation menu"
-              >
-                <Menu className="h-5 w-5" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] sm:w-[350px]">
-              <nav className="flex flex-col gap-6 mt-12">
-                <div className="flex flex-col gap-3">
-                  <span className="font-mono text-xs uppercase tracking-[1px] text-foreground/50">Products</span>
-                  <SheetClose asChild>
-                    <Link
-                      to="/kdm"
-                      className="flex items-center justify-between gap-4 px-3 py-2 font-mono text-[10px] uppercase tracking-[1.4px] text-foreground hover:bg-[rgba(255,255,255,0.05)] cursor-pointer"
-                    >
-                      KDM Monitor
-                      {isKdm && <span className="h-1.5 w-1.5 bg-foreground rounded-full" />}
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link
-                      to="/kdc"
-                      className="flex items-center justify-between gap-4 px-3 py-2 font-mono text-[10px] uppercase tracking-[1.4px] text-foreground hover:bg-[rgba(255,255,255,0.05)] cursor-pointer"
-                    >
-                      KDC Commander
-                      {!isKdm && <span className="h-1.5 w-1.5 bg-foreground rounded-full" />}
-                    </Link>
-                  </SheetClose>
-                </div>
-
-                <SheetClose asChild>
-                  <a
-                    href="#features"
-                    className="font-mono text-sm uppercase tracking-[1.4px] text-foreground hover:text-foreground/50 transition-colors"
-                  >
-                    Features
-                  </a>
-                </SheetClose>
-                <SheetClose asChild>
-                  <a
-                    href="#commands"
-                    className="font-mono text-sm uppercase tracking-[1.4px] text-foreground hover:text-foreground/50 transition-colors"
-                  >
-                    Commands
-                  </a>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    to={`/${product.slug}/docs`}
-                    className="font-mono text-sm uppercase tracking-[1.4px] text-foreground hover:text-foreground/50 transition-colors"
-                  >
-                    Docs
-                  </Link>
-                </SheetClose>
-                <div className="pt-4 border-t border-border">
-                  <SheetClose asChild>
-                    <a
-                      href={product.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-mono px-4 py-2 inline-flex items-center gap-2 border border-[rgba(255,255,255,0.2)] text-foreground hover:bg-[rgba(255,255,255,0.05)] transition-colors"
-                    >
-                      <Star className="h-4 w-4" />
-                      Star us
-                    </a>
-                  </SheetClose>
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <ProductMobileMenu product={product} isKdm={isKdm} />
 
           {/* Desktop Star button — hidden on mobile */}
           <a
