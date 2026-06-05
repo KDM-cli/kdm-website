@@ -47,7 +47,7 @@ export const Navbar = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link
-                    to="/placeholder"
+                    to="/kdc"
                     className="flex items-center justify-between gap-4 px-3 py-2 font-mono text-[10px] uppercase tracking-[1.4px] text-foreground hover:bg-[rgba(255,255,255,0.05)] cursor-pointer"
                   >
                     KDC Commander
@@ -87,7 +87,7 @@ export const Navbar = () => {
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm font-mono text-xs uppercase tracking-[1px]">
           <Link to="/kdm" className="text-foreground hover:text-foreground/50 transition-colors">KDM Monitor</Link>
-          <Link to="/placeholder" className="text-foreground hover:text-foreground/50 transition-colors">KDC Commander</Link>
+          <Link to="/kdc" className="text-foreground hover:text-foreground/50 transition-colors">KDC Commander</Link>
         </div>
         <div className="flex items-center gap-3">
           {/* Mobile hamburger trigger — visible only below md */}

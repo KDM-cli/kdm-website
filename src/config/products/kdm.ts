@@ -1,6 +1,6 @@
 import { Eye, HeartPulse, Radio, ScrollText, Cloud, Shield } from "lucide-react";
 import { ProductConfig } from "./types";
-import logoKdm from "@/assets/logo-kdm.png";
+import logoKdm from "@/assets/logo.png";
 
 export const kdmConfig: ProductConfig = {
   slug: "kdm",

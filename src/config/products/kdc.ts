@@ -1,9 +1,9 @@
 import { Activity, ShieldAlert, Cpu, ListRestart, Layers, Sparkles } from "lucide-react";
 import { ProductConfig } from "./types";
-import logoPlaceholder from "@/assets/logo-placeholder.png";
+import logoUrl from "@/assets/logo.png";
 
-export const placeholderConfig: ProductConfig = {
-  slug: "placeholder",
+export const kdcConfig: ProductConfig = {
+  slug: "kdc",
   name: "kdc",
   displayName: "KDC",
   tagline: "A project-centric DevOps terminal dashboard for Docker & Kubernetes.",
@@ -12,10 +12,10 @@ export const placeholderConfig: ProductConfig = {
   cliName: "kdc",
   installCommand: "brew install KDM-cli/tap/kdc",
   githubUrl: "https://github.com/KDM-cli/kdc-cli",
-  docsBasePath: "/placeholder/docs",
+  docsBasePath: "/kdc/docs",
   ctaHeadline: "Command.",
   ctaButtonText: "Install CLI",
-  ogImage: logoPlaceholder,
+  ogImage: logoUrl,
   features: [
     {
       icon: Activity,

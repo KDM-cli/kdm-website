@@ -1,19 +1,19 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import { createDocsLoader } from "@/lib/docs";
-import { placeholderConfig } from "@/config/products/placeholder";
+import { kdcConfig } from "@/config/products/kdc";
 
-export const Route = createFileRoute("/placeholder/docs")({
-  component: PlaceholderDocsLayout,
+export const Route = createFileRoute("/kdc/docs")({
+  component: KdcDocsLayout,
   head: () => ({
     meta: [
-      { title: `Docs — ${placeholderConfig.displayName}` },
-      { name: "description", content: `Documentation for ${placeholderConfig.displayName}, the Kubernetes Docker Commander CLI.` },
+      { title: `Docs — ${kdcConfig.displayName}` },
+      { name: "description", content: `Documentation for ${kdcConfig.displayName}, the Kubernetes Docker Commander CLI.` },
     ],
   }),
 });
 
-function PlaceholderDocsLayout() {
-  const loader = createDocsLoader("placeholder");
+function KdcDocsLayout() {
+  const loader = createDocsLoader("kdc");
 
   return (
     <div className="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-12">
@@ -23,7 +23,7 @@ function PlaceholderDocsLayout() {
         </p>
         <nav className="flex flex-col gap-2 text-sm">
           {loader.docList.map((d) => {
-            const to = d.slug ? `/placeholder/docs/${d.slug}` : "/placeholder/docs";
+            const to = d.slug ? `/kdc/docs/${d.slug}` : "/kdc/docs";
             return (
               <Link
                 key={to}

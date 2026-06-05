@@ -7,7 +7,7 @@ const kdmModules = import.meta.glob("../docs/kdm/*.md", {
   eager: true,
 }) as Record<string, string>;
 
-const placeholderModules = import.meta.glob("../docs/placeholder/*.md", {
+const kdcModules = import.meta.glob("../docs/kdc/*.md", {
   query: "?raw",
   import: "default",
   eager: true,
@@ -58,10 +58,10 @@ function parseModules(modules: Record<string, string>): Doc[] {
 }
 
 const kdmDocs = parseModules(kdmModules);
-const placeholderDocs = parseModules(placeholderModules);
+const kdcDocs = parseModules(kdcModules);
 
 export function createDocsLoader(productSlug: string) {
-  const docs = productSlug === "kdm" ? kdmDocs : placeholderDocs;
+  const docs = productSlug === "kdm" ? kdmDocs : kdcDocs;
   const allDocs: Doc[] = docs;
   const docList: DocMeta[] = docs.map(({ html: _h, ...meta }) => meta);
 

@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Cpu, Layers } from "lucide-react";
 
-import hubLogo from "@/assets/logo-hub.png";
+import hubLogo from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -120,14 +120,14 @@ function Index() {
 
             <div className="space-y-4">
               <Link
-                to="/placeholder"
+                to="/kdc"
                 className="btn-mono w-full justify-center px-6 py-3.5 bg-foreground text-background hover:bg-foreground/90 flex items-center gap-2 transition-all font-mono text-sm"
               >
                 Explore KDC
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                to="/placeholder/docs"
+                to="/kdc/docs"
                 className="w-full text-center block text-xs font-mono uppercase tracking-[1px] text-foreground/50 hover:text-foreground transition-colors py-2"
               >
                 Read KDC Docs
