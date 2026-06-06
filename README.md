@@ -16,7 +16,7 @@
 <p align="center">
   <a href="https://github.com/KDM-cli/kdm-cli"><img alt="KDM CLI" src="https://img.shields.io/badge/KDM-CLI-000?style=flat-square&logo=kubernetes"></a>
   <a href="LICENSE"><img alt="License: AGPL v3" src="https://img.shields.io/badge/License-AGPL%20v3-blue?style=flat-square"></a>
-  <a href="https://github.com/Yuvraj-Sarathe/kdm-website/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/Yuvraj-Sarathe/kdm-website?style=flat-square"></a>
+  <a href="https://github.com/KDM-cli/kdm-website/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/KDM-cli/kdm-website?style=flat-square"></a>
 </p>
 
 ---
@@ -88,7 +88,7 @@ The website serves as both a landing page and documentation hub for the KDM CLI 
 
 ```bash
 # Clone the repository
-git clone https://github.com/Yuvraj-Sarathe/kdm-website.git
+git clone https://github.com/KDM-cli/kdm-website.git
 cd kdm-website
 
 # Install dependencies
